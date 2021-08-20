@@ -1,0 +1,20 @@
+@use './global';
+@use './components';
+
+.wrapper {
+    padding: 3rem 0;
+    max-width: 30rem;
+    width: 100%;
+    margin: 0 auto;
+    @include global.breakpoint(tablet) {
+        max-width: 64rem;
+    }
+    @include global.breakpoint(desktop) {
+        max-width: 128rem;
+        padding: 8rem 0;
+    }
+}
+
+.done {
+    text-decoration: line-through;
+}

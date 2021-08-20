@@ -1,0 +1,107 @@
+@use '../global';
+
+.todos {
+  background-color: global.$lightGray;
+
+  &__header {
+    @include global.breakpoint(desktop) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__userName {
+    margin-left: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: global.$darkGray;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+
+    @include global.breakpoint(desktop) {
+      font-size: 3.4rem;
+      font-weight: 500;
+    }
+  }
+  &__list {
+    list-style: none;
+  }
+
+  &__todoName {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: global.$darkGray;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+
+    @include global.breakpoint(desktop) {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+
+  &__item {
+    background-color: global.$darkerGray;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 0.6rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+
+    @include global.breakpoint(desktop) {
+      padding: 1.6rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+    }
+
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: global.$darkGray;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+
+    @include global.breakpoint(desktop) {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid global.$gray;
+    padding: 1.2rem;
+    border-radius: 0.4rem;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 1.5rem;
+
+    @include global.breakpoint(desktop) {
+      width: 4.4rem;
+      height: 4.4rem;
+    }
+
+    &:checked::after {
+      content: "\2714";
+      font-size: 2rem;
+      position: absolute;
+      top: -2px;
+      left: 4px;
+      color: global.$iceBlue;
+
+      @include global.breakpoint(desktop) {
+        left: 1rem;
+        font-size: 3rem;
+      }
+    }
+  }
+}

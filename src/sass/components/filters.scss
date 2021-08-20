@@ -1,0 +1,44 @@
+@use '../global';
+
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__button {
+        font-size: 1.1rem;
+        font-weight: 700;
+        max-width: 9.5rem;
+        max-height: 3.5rem;
+        height: 100%;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 3rem;
+        margin: 1.5rem 0;
+        border: 1px solid #c7c8ca;
+        cursor: pointer;
+
+        @include global.breakpoint(desktop) {
+            font-size: 1.8rem;
+            min-width: 20rem;
+            min-height: 5rem;
+            border: 2px solid #c7c8ca;
+        }
+
+        &:nth-child(2) {
+            margin: 1.5rem 0.8rem;
+
+            @include global.breakpoint(desktop) {
+                margin: 1.5rem 3rem;
+            }
+        }
+    }
+    .active {
+        background-color: global.$main;
+        border: 1px solid global.$main;
+        @include global.breakpoint(desktop) {
+            border: 2px solid global.$main;
+        }
+    }
+}
