@@ -6,7 +6,7 @@
       :key="index"
       @click="sendFilter"
     >
-      {{ filter }}
+      {{ `${filter}` }}
     </button>
   </section>
 </template>

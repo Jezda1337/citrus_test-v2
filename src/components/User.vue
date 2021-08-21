@@ -12,6 +12,7 @@
           >
             {{ user.name }}
           </button>
+          <button class="user__button" v-show="false"></button>
         </ul>
       </section>
     </div>
@@ -19,7 +20,6 @@
 </template>
 
 <script>
-import { computed } from "@vue/runtime-core";
 import { useStore } from "vuex";
 export default {
   name: "User",
@@ -28,11 +28,22 @@ export default {
     const store = useStore();
     const users = store.state.users;
     const getUserId = (user) => {
+      getButtons();
       store.commit("changeUserName", user.name);
       return store.commit("changeId", user.id);
     };
 
-    computed(getUserId);
+    const getButtons = () => {
+      const buttons = [...document.querySelectorAll(".user__button")];
+
+      buttons.forEach((button) => {
+        if (button.classList.contains("user__button--active")) {
+          button.classList.remove("user__button--active");
+        } else {
+          event.target.classList.add("user__button--active");
+        }
+      });
+    };
 
     return {
       users,

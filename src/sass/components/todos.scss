@@ -4,7 +4,7 @@
   background-color: global.$lightGray;
 
   &__header {
-    @include global.breakpoint(desktop) {
+    @include global.breakpoint(tablet) {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -19,6 +19,10 @@
     color: global.$darkGray;
     &::first-letter {
       text-transform: uppercase;
+    }
+
+    @include global.breakpoint(tablet) {
+      font-size: 2rem;
     }
 
     @include global.breakpoint(desktop) {
